@@ -5,6 +5,12 @@
 	<script type="text/javascript" src="paper-full.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="circles.css">
 	<script type="text/paperscript" canvas="myCanvas">
+		//PointText();
+		var pointTextLocation = new Point(20,20);
+		var myText = new PointText(pointTextLocation);
+		myText.fillColor = 'white';
+		myText.content = '[Premi un Tasto Qualsiasi]\n@ startae14';
+
 		// inizializzo l'array di cerchi
 		var circles = [];
 		// provo gli eventi da tastiera onKeyDown
@@ -15,14 +21,11 @@
 			// mi genera un punto a random nell'aria
 			// del canvas
 			var point = maxPoint * randomPoint;
-			
-
 			// When a key is pressed, disegno un cerchio:
 			var newCircle = new Path.Circle(new Point(point),500);
 			newCircle.fillColor = "orange";
 			circles.push(newCircle);
 		}
-
 		// aggiungo animazione
 		function onFrame(event){
 			for(var i = 0; i < circles.length; i++){
