@@ -6,6 +6,10 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.0/howler.core.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="circles.css">
 	<script type="text/paperscript" canvas="myCanvas">
+		var soundsDirs = ['soundsA','soundsB','soundsC','soundsD','soundsE','soundsF'];
+		var randIndex = Math.floor(Math.random() * soundsDirs.length);
+		var soundSel = soundsDirs[randIndex];
+
 		function createPolygon(numPoints, point){
 			var polygon = new Path();
 			var points = numPoints;
@@ -35,7 +39,7 @@
 			q: {
 				color: "#1abc9c",
 				sound: new Howl({
-		  		src: ['soundsA/bubbles.mp3']
+		  		src: [soundSel + '/bubbles.mp3']
 				}),
 				createShape: function(point){
 					var size = new Size(400, 100);
@@ -45,7 +49,7 @@
 			w: {
 				color: "#2ecc71",
 				sound: new Howl({
-		  		src: ['soundsA/clay.mp3']
+		  		src: [soundSel + '/clay.mp3']
 				}),
 				createShape: function(point){
 					var radius = 500;
@@ -60,7 +64,7 @@
 			e: {
 				color: "#3498db",
 				sound: new Howl({
-		  		src: ['soundsA/confetti.mp3']
+		  		src: [soundSel + '/confetti.mp3']
 				}),
 				createShape: function(point){
 					var radius = 500;
@@ -77,7 +81,7 @@
 			r: {
 				color: "#9b59b6",
 				sound: new Howl({
-		  		src: ['soundsA/corona.mp3']
+		  		src: [soundSel + '/corona.mp3']
 				}),
 				createShape: function(point){
 					var radius = 500;
@@ -94,7 +98,7 @@
 			t: {
 				color: "#34495e",
 				sound: new Howl({
-		  		src: ['soundsA/dotted-spiral.mp3']
+		  		src: [soundSel + '/dotted-spiral.mp3']
 				}),
 				createShape: function(point){
 					var radius = 500;
@@ -110,7 +114,7 @@
 			y: {
 				color: "#16a085",
 				sound: new Howl({
-		  		src: ['soundsA/flash-1.mp3']
+		  		src: [soundSel + '/flash-1.mp3']
 				}),
 				createShape: function(point){
 					var radius = 500;
@@ -126,7 +130,7 @@
 			u: {
 				color: "#27ae60",
 				sound: new Howl({
-		  		src: ['soundsA/flash-2.mp3']
+		  		src: [soundSel + '/flash-2.mp3']
 				}),
 				createShape: function(point){
 					var radius = 500;
@@ -143,7 +147,7 @@
 			i: {
 				color: "#2980b9",
 				sound: new Howl({
-		  		src: ['soundsA/flash-3.mp3']
+		  		src: [soundSel + '/flash-3.mp3']
 				}),
 				createShape: function(point){
 					var radius = 500;
@@ -159,7 +163,7 @@
 			o: {
 				color: "#8e44ad",
 				sound: new Howl({
-		  		src: ['soundsA/glimmer.mp3']
+		  		src: [soundSel + '/glimmer.mp3']
 				}),
 				createShape: function(point){
 					var lato1 = 500;
@@ -176,7 +180,7 @@
 			p: {
 				color: "#2c3e50",
 				sound: new Howl({
-		  		src: ['soundsA/moon.mp3']
+		  		src: [soundSel + '/moon.mp3']
 				}),
 				createShape: function(point){
 					var lato1 = 500;
@@ -193,7 +197,7 @@
 			a: {
 				color: "#f1c40f",
 				sound: new Howl({
-		  		src: ['soundsA/pinwheel.mp3']
+		  		src: [soundSel + '/pinwheel.mp3']
 				}),
 				createShape: function(point){
 					return new Path.Circle(new Point(point),500);
@@ -202,7 +206,7 @@
 			s: {
 				color: "#e67e22",
 				sound: new Howl({
-		  		src: ['soundsA/piston-1.mp3']
+		  		src: [soundSel + '/piston-1.mp3']
 				}),
 				createShape: function(point){
 					var size = new Size(300, 300);
@@ -212,7 +216,7 @@
 			d: {
 				color: "#e74c3c",
 				sound: new Howl({
-		  		src: ['soundsA/piston-2.mp3']
+		  		src: [soundSel + '/piston-2.mp3']
 				}),
 				createShape: function(point){
 					var size = new Size(300, 300);
@@ -222,7 +226,7 @@
 			f: {
 				color: "#95a5a6",
 				sound: new Howl({
-		  		src: ['soundsA/prism-1.mp3']
+		  		src: [soundSel + '/prism-1.mp3']
 				}),
 				createShape: function(point){
 					return createPolygon(6, point);
@@ -231,7 +235,7 @@
 			g: {
 				color: "#f39c12",
 				sound: new Howl({
-		  		src: ['soundsA/prism-2.mp3']
+		  		src: [soundSel + '/prism-2.mp3']
 				}),
 				createShape: function(point){
 					return createPolygon(5, point);
@@ -240,7 +244,7 @@
 			h: {
 				color: "#d35400",
 				sound: new Howl({
-		  		src: ['soundsA/prism-3.mp3']
+		  		src: [soundSel + '/prism-3.mp3']
 				}),
 				createShape: function(point){
 					return createPolygon(7, point);
@@ -249,7 +253,7 @@
 			j: {
 				color: "#1abc9c",
 				sound: new Howl({
-		  		src: ['soundsA/splits.mp3']
+		  		src: [soundSel + '/splits.mp3']
 				}),
 				createShape: function(point){
 					return createPolygon(8, point);
@@ -258,7 +262,7 @@
 			k: {
 				color: "#2ecc71",
 				sound: new Howl({
-		  		src: ['soundsA/squiggle.mp3']
+		  		src: [soundSel + '/squiggle.mp3']
 				}),
 				createShape: function(point){
 					return createPolygon(8, point);
@@ -267,7 +271,7 @@
 			l: {
 				color: "#3498db",
 				sound: new Howl({
-		  		src: ['soundsA/strike.mp3']
+		  		src: [soundSel + '/strike.mp3']
 				}),
 				createShape: function(point){
 					return createPolygon(9, point);
@@ -276,7 +280,7 @@
 			z: {
 				color: "#9b59b6",
 				sound: new Howl({
-		  		src: ['soundsA/suspension.mp3']
+		  		src: [soundSel + '/suspension.mp3']
 				}),
 				createShape: function(point){
 					return createPolygon(12, point);
@@ -285,7 +289,7 @@
 			x: {
 				color: "#9b59b6",
 				sound: new Howl({
-		  		src: ['soundsA/timer.mp3']
+		  		src: [soundSel + '/timer.mp3']
 				}),
 				createShape: function(point){
 					var lato1 = 500;
@@ -311,7 +315,7 @@
 			c: {
 				color: "#16a085",
 				sound: new Howl({
-		  		src: ['soundsA/ufo.mp3']
+		  		src: [soundSel + '/ufo.mp3']
 				}),
 				createShape: function(point){
 					var lato1 = 500;
@@ -338,7 +342,7 @@
 			v: {
 				color: "#27ae60",
 				sound: new Howl({
-		  		src: ['soundsA/veil.mp3']
+		  		src: [soundSel + '/veil.mp3']
 				}),
 				createShape: function(point){
 					var lato1 = 500;
@@ -359,7 +363,7 @@
 			b: {
 				color: "#2980b9",
 				sound: new Howl({
-		  		src: ['soundsA/wipe.mp3']
+		  		src: [soundSel + '/wipe.mp3']
 				}),
 				createShape: function(point){
 					var lato = 50;
@@ -378,7 +382,7 @@
 			n: {
 				color: "#8e44ad",
 				sound: new Howl({
-		  		src: ['soundsA/zig-zag.mp3']
+		  		src: [soundSel + '/zig-zag.mp3']
 				}),
 				createShape: function(point){
 					return createPolygon(3, point);
@@ -387,7 +391,7 @@
 			m: {
 				color: "#2c3e50",
 				sound: new Howl({
-		  		src: ['soundsA/moon.mp3']
+		  		src: [soundSel + '/moon.mp3']
 				}),
 				createShape: function(point){
 					return createPolygon(24, point);
