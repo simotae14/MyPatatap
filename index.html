@@ -6,6 +6,24 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.0/howler.core.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="circles.css">
 	<script type="text/paperscript" canvas="myCanvas">
+		function createPolygon(numPoints, point){
+			var polygon = new Path();
+			var points = numPoints;
+			var radius = 500;
+			var angle = ((2 * Math.PI) / points);
+			for(i = 0; i <= points; i++){
+				polygon.add(new Point(
+			    // Radius * Math.cos(number of radians of the point) is the x position
+			    radius * Math.cos(angle * i), 
+			    // And the same thing with Math.sin for the y position of the point
+			    radius * Math.sin(angle * i)
+		  	));
+			}
+			polygon.position.x += point.x;
+			polygon.position.y += point.y;
+			return polygon;
+		}
+
 		//PointText();
 		var pointTextLocation = new Point(20,20);
 		var myText = new PointText(pointTextLocation);
@@ -89,19 +107,102 @@
 					return new Path(points);
 				}
 			},
-			a: {
-				color: "purple",
+			y: {
+				color: "#16a085",
 				sound: new Howl({
-		  		src: ['soundsA/bubbles.mp3']
+		  		src: ['soundsA/flash-1.mp3']
+				}),
+				createShape: function(point){
+					var radius = 500;
+					
+					var points = [
+						new Point(point.x - radius, point.y - radius),
+				    new Point(point.x - 50, point.y + radius),
+				    new Point(point.x + radius, point.y + radius)
+					];
+					return new Path(points);
+				}
+			},
+			u: {
+				color: "#27ae60",
+				sound: new Howl({
+		  		src: ['soundsA/flash-2.mp3']
+				}),
+				createShape: function(point){
+					var radius = 500;
+					var midRadius = 250;
+					var points = [
+						new Point(point.x - radius, point.y - midRadius),
+				    new Point(point.x - radius, point.y + midRadius),
+				    new Point(point.x + radius, point.y + midRadius),
+				    new Point(point.x + radius, point.y - midRadius)
+					];
+					return new Path(points);
+				}
+			},			
+			i: {
+				color: "#2980b9",
+				sound: new Howl({
+		  		src: ['soundsA/flash-3.mp3']
+				}),
+				createShape: function(point){
+					var radius = 500;
+					var points = [
+						new Point(point.x, point.y - radius),
+				    new Point(point.x - radius, point.y),
+				    new Point(point.x, point.y + radius),
+				    new Point(point.x + radius, point.y)
+					];
+					return new Path(points);
+				}
+			},
+			o: {
+				color: "#8e44ad",
+				sound: new Howl({
+		  		src: ['soundsA/glimmer.mp3']
+				}),
+				createShape: function(point){
+					var lato1 = 500;
+					var lato2 = 250;
+					var points = [
+						new Point(point.x - lato2, point.y - lato1),
+				    new Point(point.x - lato1, point.y + lato1),
+				    new Point(point.x + lato2, point.y + lato1),
+				    new Point(point.x + lato1, point.y - lato1)
+					];
+					return new Path(points);
+				}
+			},
+			p: {
+				color: "#2c3e50",
+				sound: new Howl({
+		  		src: ['soundsA/moon.mp3']
+				}),
+				createShape: function(point){
+					var lato1 = 500;
+					var lato2 = 350;
+					var points = [
+						new Point(point.x - lato2, point.y - lato1),
+				    new Point(point.x - lato2, point.y + lato1),
+				    new Point(point.x + lato1, point.y + lato1),
+				    new Point(point.x + lato2, point.y - lato1)
+					];
+					return new Path(points);
+				}
+			},
+			a: {
+				color: "#f1c40f",
+				sound: new Howl({
+		  		src: ['soundsA/pinwheel.mp3']
 				}),
 				createShape: function(point){
 					return new Path.Circle(new Point(point),500);
 				}
 			},
 			s: {
-				color: "green",
+				color: "#e67e22",
 				sound: new Howl({
-		  		src: ['soundsA/clay.mp3']
+		  		src: ['soundsA/piston-1.mp3']
 				}),
 				createShape: function(point){
 					var size = new Size(300, 300);
@@ -109,13 +210,187 @@
 				}
 			},
 			d: {
-				color: "yellow",
+				color: "#e74c3c",
 				sound: new Howl({
-		  		src: ['soundsA/confetti.mp3']
+		  		src: ['soundsA/piston-2.mp3']
 				}),
 				createShape: function(point){
 					var size = new Size(300, 300);
 					var cornerSize = new Size(100, 100);return new Shape.Rectangle(point, size, cornerSize);
+				}
+			},
+			f: {
+				color: "#95a5a6",
+				sound: new Howl({
+		  		src: ['soundsA/prism-1.mp3']
+				}),
+				createShape: function(point){
+					return createPolygon(6, point);
+				}
+			},
+			g: {
+				color: "#f39c12",
+				sound: new Howl({
+		  		src: ['soundsA/prism-2.mp3']
+				}),
+				createShape: function(point){
+					return createPolygon(5, point);
+				}
+			},
+			h: {
+				color: "#d35400",
+				sound: new Howl({
+		  		src: ['soundsA/prism-3.mp3']
+				}),
+				createShape: function(point){
+					return createPolygon(7, point);
+				}
+			},
+			j: {
+				color: "#1abc9c",
+				sound: new Howl({
+		  		src: ['soundsA/splits.mp3']
+				}),
+				createShape: function(point){
+					return createPolygon(8, point);
+				}
+			},
+			k: {
+				color: "#2ecc71",
+				sound: new Howl({
+		  		src: ['soundsA/squiggle.mp3']
+				}),
+				createShape: function(point){
+					return createPolygon(8, point);
+				}
+			},
+			l: {
+				color: "#3498db",
+				sound: new Howl({
+		  		src: ['soundsA/strike.mp3']
+				}),
+				createShape: function(point){
+					return createPolygon(9, point);
+				}
+			},
+			z: {
+				color: "#9b59b6",
+				sound: new Howl({
+		  		src: ['soundsA/suspension.mp3']
+				}),
+				createShape: function(point){
+					return createPolygon(12, point);
+				}
+			},
+			x: {
+				color: "#9b59b6",
+				sound: new Howl({
+		  		src: ['soundsA/timer.mp3']
+				}),
+				createShape: function(point){
+					var lato1 = 500;
+					var lato2 = 300;
+					var spess = 100;
+					var points = [
+						new Point(point.x - lato2 + spess, point.y - lato1),
+				    new Point(point.x - lato2, point.y - lato1),
+				    new Point(point.x - spess, point.y),
+				    new Point(point.x - lato2, point.y + lato1),
+				    new Point(point.x - lato2 + spess, point.y + lato1),
+				    new Point(point.x, point.y + spess),
+				    new Point(point.x + lato2 -spess, point.y + lato1),				    
+				    new Point(point.x + lato2, point.y + lato1),
+				    new Point(point.x + spess, point.y),
+				    new Point(point.x + lato2, point.y - lato1),
+				    new Point(point.x + lato2 - spess, point.y - lato1),
+				    new Point(point.x, point.y - spess)
+					];
+					return new Path(points);
+				}
+			},
+			c: {
+				color: "#16a085",
+				sound: new Howl({
+		  		src: ['soundsA/ufo.mp3']
+				}),
+				createShape: function(point){
+					var lato1 = 500;
+					var lato2 = 300;
+					var spess = 100;
+					var points = [
+
+						new Point(point.x - spess, point.y - lato2),
+						new Point(point.x - spess, point.y - spess),
+						new Point(point.x - lato2, point.y - spess),
+						new Point(point.x - lato2, point.y + spess),
+						new Point(point.x - spess, point.y + spess),
+						new Point(point.x - spess, point.y + lato1),
+						new Point(point.x + spess, point.y + lato1),
+						new Point(point.x + spess, point.y + spess),
+						new Point(point.x + lato2, point.y + spess),
+						new Point(point.x + lato2, point.y - spess),
+						new Point(point.x + spess, point.y - spess),
+						new Point(point.x + spess, point.y - lato2)
+					];
+					return new Path(points);
+				}
+			},
+			v: {
+				color: "#27ae60",
+				sound: new Howl({
+		  		src: ['soundsA/veil.mp3']
+				}),
+				createShape: function(point){
+					var lato1 = 500;
+					var lato2 = 300;
+					var spess = 100;
+					var points = [
+
+						new Point(point.x - spess, point.y - lato1),
+						new Point(point.x - (spess * 2), point.y - lato1),
+						new Point(point.x, point.y + spess),
+						new Point(point.x + (spess * 2), point.y - lato1),
+						new Point(point.x + spess, point.y - lato1),
+						new Point(point)
+					];
+					return new Path(points);
+				}
+			},
+			b: {
+				color: "#2980b9",
+				sound: new Howl({
+		  		src: ['soundsA/wipe.mp3']
+				}),
+				createShape: function(point){
+					var lato = 50;
+					var points = [
+						new Point(point.x - lato * 5, point.y - lato * 2),
+						new Point(point.x - lato * 5, point.y + lato * 2),
+						new Point(point.x, point.y + lato * 2),
+						new Point(point.x, point.y + lato * 3),
+						new Point(point.x + lato * 5, point.y),
+						new Point(point.x, point.y - lato * 3),
+						new Point(point.x, point.y - lato * 2)
+					];
+					return new Path(points);
+				}
+			},
+			n: {
+				color: "#8e44ad",
+				sound: new Howl({
+		  		src: ['soundsA/zig-zag.mp3']
+				}),
+				createShape: function(point){
+					return createPolygon(3, point);
+				}
+			},
+			m: {
+				color: "#2c3e50",
+				sound: new Howl({
+		  		src: ['soundsA/moon.mp3']
+				}),
+				createShape: function(point){
+					return createPolygon(24, point);
 				}
 			}
 		}
