@@ -14,6 +14,81 @@
 
 		// definisco un oggetto coi vari pulsanti
 		var keyData = {
+			q: {
+				color: "#1abc9c",
+				sound: new Howl({
+		  		src: ['soundsA/bubbles.mp3']
+				}),
+				createShape: function(point){
+					var size = new Size(400, 100);
+					return new Path.Ellipse(new Point(point),size);
+				}
+			},
+			w: {
+				color: "#2ecc71",
+				sound: new Howl({
+		  		src: ['soundsA/clay.mp3']
+				}),
+				createShape: function(point){
+					var radius = 500;
+					var points = [
+						new Point(point.x + radius, point.y+radius),
+				    new Point(point.x - radius, point.y+radius),
+				    new Point(point.x, point.y-radius)
+					];
+					return new Path(points);
+				}
+			},
+			e: {
+				color: "#3498db",
+				sound: new Howl({
+		  		src: ['soundsA/confetti.mp3']
+				}),
+				createShape: function(point){
+					var radius = 500;
+					var midRadius = 250;
+					
+					var points = [
+						new Point(point.x + midRadius, point.y+midRadius),
+				    new Point(point.x - midRadius, point.y+midRadius),
+				    new Point(point.x, point.y-radius)
+					];
+					return new Path(points);
+				}
+			},
+			r: {
+				color: "#9b59b6",
+				sound: new Howl({
+		  		src: ['soundsA/corona.mp3']
+				}),
+				createShape: function(point){
+					var radius = 500;
+					var midRadius = 350;
+					
+					var points = [
+						new Point(point.x - radius, point.y - radius),
+				    new Point(point.x - midRadius, point.y+ 50),
+				    new Point(point.x + radius, point.y + radius)
+					];
+					return new Path(points);
+				}
+			},
+			t: {
+				color: "#34495e",
+				sound: new Howl({
+		  		src: ['soundsA/dotted-spiral.mp3']
+				}),
+				createShape: function(point){
+					var radius = 500;
+					
+					var points = [
+						new Point(point.x - radius, point.y - radius),
+				    new Point(point.x - radius, point.y + radius),
+				    new Point(point.x + radius, point.y + radius)
+					];
+					return new Path(points);
+				}
+			},
 			a: {
 				color: "purple",
 				sound: new Howl({
@@ -70,7 +145,7 @@
 		function onFrame(event){
 			for(var i = 0; i < shapes.length; i++){
 				shapes[i].fillColor.hue += 1;
-				shapes[i].scale(.9);
+				shapes[i].rotate(3).scale(.9);
 			}
 		}
 	</script>
