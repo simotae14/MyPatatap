@@ -6,24 +6,37 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.0/howler.core.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="circles.css">
 	<script type="text/paperscript" canvas="myCanvas">
-		// aggiungo primo howl
-		var sound = new Howl({
-		  src: ['soundsA/bubbles.mp3']
-		});
-
-
 		//PointText();
 		var pointTextLocation = new Point(20,20);
 		var myText = new PointText(pointTextLocation);
 		myText.fillColor = 'white';
 		myText.content = '[Premi un Tasto Qualsiasi]\n@ startae14';
 
+		// aggiungo primo howl
+		var sound1 = new Howl({
+		  src: ['soundsA/bubbles.mp3']
+		});
+
+		var sound2 = new Howl({
+		  src: ['soundsA/clay.mp3']
+		});
+
+
+
 		// inizializzo l'array di cerchi
 		var circles = [];
 		// provo gli eventi da tastiera onKeyDown
 		function onKeyDown(event) {
-			// suono
-			sound.play();
+			// se il pulsante è "a"
+			if(event.key === "a"){
+				// esegui sound1
+				sound1.play();
+			// se il pulsante è "s"
+			} else if(event.key === "s"){
+				// esegui sound2
+				sound2.play();
+			}
+
 
 
 			// ottengo coordinate del punto + estremo
